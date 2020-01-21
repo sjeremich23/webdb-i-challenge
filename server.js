@@ -7,6 +7,7 @@ server.use(express.json());
 server.get("/", (req, res) => {
   db.select("*")
     .from("accounts")
+    .limit(2)
     .then(accounts => {
       res.status(200).json({ accounts });
     })
